@@ -33,15 +33,13 @@ public class SupermarketService {
     }
 
     public List<Supermarket> selectRandomSupermarketByBrand() {
-        List<Supermarket> allSupermarkets = findAll();
-        Map<String, List<Supermarket>> groupedSupermarkets = allSupermarkets.stream().collect(Collectors.groupingBy(Supermarket::getBrand));
-        List<Supermarket> selectedSupermarkets = new ArrayList<>();
-        Random random = new Random();
-        groupedSupermarkets.forEach((brand, supermarkets) -> {
-            int randomIndex = random.nextInt(supermarkets.size());
-            selectedSupermarkets.add(supermarkets.get(randomIndex));
-        });
-        return selectedSupermarkets;
+        List<Supermarket> supermarkets = supermarketRepository.findAll();
+        return supermarkets.stream()
+                .filter(s -> supermarkets.stream()
+                        .filter(x -> x.getBrand()
+                                .equals(s.getBrand()))
+                        .count() == 1)
+                .collect(Collectors.toList());
     }
 }
 

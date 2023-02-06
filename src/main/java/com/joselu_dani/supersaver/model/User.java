@@ -28,7 +28,7 @@ public class User{
     @Column(nullable=false, unique = true)
     private String username;
     @OneToOne
-    @Column(nullable=false)
+    @PrimaryKeyJoinColumn
     private Location location;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)

@@ -22,7 +22,7 @@ public class Supermarket {
     @Column(nullable=false)
     private String brand;
     @OneToOne
-    @Column(nullable=false)
+    @PrimaryKeyJoinColumn
     private Location location;
     @OneToMany(mappedBy = "supermarket")
     private List<Product> productList;

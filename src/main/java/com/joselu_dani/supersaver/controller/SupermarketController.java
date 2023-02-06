@@ -13,7 +13,7 @@ public class SupermarketController {
         this.supermarketService = supermarketService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/supermarkets")
     public String index(Model model) {
         model.addAttribute("supermarkets", supermarketService.findAll());
         return "index";

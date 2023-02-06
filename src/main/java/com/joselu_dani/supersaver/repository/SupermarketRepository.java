@@ -2,6 +2,7 @@ package com.joselu_dani.supersaver.repository;
 
 import com.joselu_dani.supersaver.model.Supermarket;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,5 +13,4 @@ public interface SupermarketRepository extends JpaRepository<Supermarket, Long> 
     Supermarket findById(long id);
     Supermarket findByName(String username);
     List<Supermarket> findByBrand(String brand);
-    List<Supermarket> selectRandomSupermarketByBrand();
 }
