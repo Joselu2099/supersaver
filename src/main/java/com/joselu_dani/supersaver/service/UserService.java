@@ -29,7 +29,7 @@ public class UserService {
 
     public void saveUser(UserDto userDto) {
         User user = new User();
-        user.setUsername(userDto.getFirstName() + " " + userDto.getLastName());
+        user.setUsername(userDto.getUsername());
         user.setEmail(userDto.getEmail());
 
         //encrypt the password once we integrate spring security
@@ -39,7 +39,7 @@ public class UserService {
         if(role == null){
             role = checkRoleExist();
         }
-        user.setRoles(Arrays.asList(role));
+        user.setRoles(List.of(role));
         userRepository.save(user);
     }
 
@@ -57,15 +57,13 @@ public class UserService {
 
     public List<UserDto> findAllUsers() {
         List<User> users = userRepository.findAll();
-        return users.stream().map((user) -> convertEntityToDto(user))
+        return users.stream().map(this::convertEntityToDto)
                 .collect(Collectors.toList());
     }
 
     private UserDto convertEntityToDto(User user){
         UserDto userDto = new UserDto();
-        String[] name = user.getUsername().split(" ");
-        userDto.setFirstName(name[0]);
-        userDto.setLastName(name[1]);
+        userDto.setUsername(user.getUsername());
         userDto.setEmail(user.getEmail());
         return userDto;
     }

@@ -14,13 +14,11 @@ import lombok.Setter;
 public class UserDto
 {
     private Long id;
-    @NotEmpty
-    private String firstName;
-    @NotEmpty
-    private String lastName;
-    @NotEmpty(message = "Email should not be empty")
+    @NotEmpty(message = "Necesitamos un nombre para tu usuario")
+    private String username;
+    @NotEmpty(message = "El campo email debe ser rellenado")
     @Email
     private String email;
-    @NotEmpty(message = "Password should not be empty")
+    @NotEmpty(message = "Debes elegir una contraseña")
     private String password;
 }
