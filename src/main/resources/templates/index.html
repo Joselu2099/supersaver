@@ -2,19 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Supermarket List</title>
+  <title>Home</title>
 </head>
 <body>
-<h1>Supermarket List</h1>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Location</th>
-  </tr>
-  <tr th:each="supermarket : ${supermarkets}">
-    <td th:text="${supermarket.name}"></td>
-    <td th:text="${supermarket.location.address}"></td>
-  </tr>
-</table>
+  <h1>Welcome to SuperSaver</h1>
+  <div th:each="supermarket : ${supermarkets}">
+    <h5 th:text="${supermarket.brand}"></h5>
+  </div>
 </body>
 </html>

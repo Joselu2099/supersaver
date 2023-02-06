@@ -11,4 +11,6 @@ public interface SupermarketRepository extends JpaRepository<Supermarket, Long> 
 
     Supermarket findById(long id);
     Supermarket findByName(String username);
+    List<Supermarket> findByBrand(String brand);
+    List<Supermarket> selectRandomSupermarketByBrand();
 }

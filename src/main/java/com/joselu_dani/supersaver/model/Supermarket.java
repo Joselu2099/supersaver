@@ -1,54 +1,30 @@
 package com.joselu_dani.supersaver.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Data
-@Table(name = "supermarket")
+@Table(name = "supermarkets")
 public class Supermarket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable=false)
     private String name;
+    @Column(nullable=false)
+    private String brand;
     @OneToOne
+    @Column(nullable=false)
     private Location location;
-    @OneToMany
+    @OneToMany(mappedBy = "supermarket")
     private List<Product> productList;
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public List<Product> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
-    }
 }
 
