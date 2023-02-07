@@ -40,6 +40,24 @@ public class AuthController {
         return "register";
     }
 
+    /*
+    @PostMapping("/login/auth")
+    public String login(@RequestParam("email") String email,
+                        @RequestParam("password") String password,
+                        HttpServletRequest request,
+                        Model model) {
+        User user = userService.findByEmail(email);
+        if (user == null || !user.getPassword().equals(password)) {
+            model.addAttribute("errorMessage", "Invalid email or password");
+            return "login";
+        }
+        request.getSession().setAttribute("user", user);
+        System.out.println("Successful login for user: " + user.getEmail());
+        return "redirect:/index";
+    }
+    */
+
+
     // handler method to handle register user form submit request
     @PostMapping("/register/save")
     public String registration(@Valid @ModelAttribute("user") UserDto user,
