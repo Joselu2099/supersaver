@@ -15,7 +15,7 @@ public class UserDto
 {
     private Long id;
     @NotEmpty(message = "Necesitamos un nombre para tu usuario")
-    private String username;
+    private String name;
     @NotEmpty(message = "El campo email debe ser rellenado")
     @Email
     private String email;

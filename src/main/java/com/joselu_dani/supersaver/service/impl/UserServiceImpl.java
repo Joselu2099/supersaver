@@ -6,6 +6,7 @@ import com.joselu_dani.supersaver.model.User;
 import com.joselu_dani.supersaver.repository.RoleRepository;
 import com.joselu_dani.supersaver.repository.UserRepository;
 import com.joselu_dani.supersaver.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,9 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
+    @Autowired
     private UserRepository userRepository;
+    @Autowired
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
 
@@ -31,7 +34,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUser(UserDto userDto) {
         User user = new User();
-        user.setUsername(userDto.getUsername());
+        user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
 
         //encrypt the password once we integrate spring security
@@ -51,6 +54,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findByName(String name){
+        return userRepository.findByName(name);
+    }
+
+    @Override
     public List<UserDto> findAllUsers() {
         List<User> users = userRepository.findAll();
         return users.stream().map(this::convertEntityToDto)
@@ -59,7 +67,7 @@ public class UserServiceImpl implements UserService {
 
     private UserDto convertEntityToDto(User user){
         UserDto userDto = new UserDto();
-        userDto.setUsername(user.getUsername());
+        userDto.setName(user.getName());
         userDto.setEmail(user.getEmail());
         return userDto;
     }
