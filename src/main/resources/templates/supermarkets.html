@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Supermarkets</title>
 </head>
 <body>
-
+<h1>Supermarkets</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" th:each="supermarket : ${supermarkets}">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${supermarket.name}"></h5>
+                    <p class="card-text">
+                        Address: <span th:text="${supermarket.location.address}"></span><br>
+                        Postal code: <span th:text="${supermarket.location.postalCode}"></span><br>
+                        City: <span th:text="${supermarket.location.city}"></span><br>
+                        Country: <span th:text="${supermarket.location.country}"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

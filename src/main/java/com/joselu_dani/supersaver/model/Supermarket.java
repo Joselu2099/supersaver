@@ -13,18 +13,16 @@ import java.util.List;
 @Data
 @Table(name = "supermarkets")
 public class Supermarket {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(nullable=false)
     private String name;
-    @Column(nullable=false)
-    private String brand;
     @OneToOne
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="location_id", nullable=false)
     private Location location;
     @OneToMany(mappedBy = "supermarket")
     private List<Product> productList;
 }
+
 
