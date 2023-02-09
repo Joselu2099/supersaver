@@ -1,0 +1,40 @@
+.navbar-brand{
+    background-color: #14B6E2;
+}
+.container{
+    border:3px solid #14B6E2;
+}
+.btn-primary{
+    color: #000000 !important;
+    background-color: #14B6E2;
+    border-color: #000000;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #D2F0F0;
+    border-color: #000000;
+}
+.form-control{
+    color: #212529;
+    background-color: #C8C8C8;
+    border: 1px solid #000000;
+    border-radius: 0.25rem;
+}
+.form-control:focus {
+    color: #212529;
+    background-color: #C8C8C8;
+    border: 1px solid #000000;
+    box-shadow: 0 0 0 0.1rem #ff0000;
+}
+.form-control:hover {
+    color: #212529;
+    background-color: white;
+    border: 1px solid #000000;
+    box-shadow: 0 0 0 0.1rem #ff0000;
+}
+.card-body{
+    background-color: #D2F0F0;
+}
+.card.header{
+    background-color: #C8C8C8;
+}
