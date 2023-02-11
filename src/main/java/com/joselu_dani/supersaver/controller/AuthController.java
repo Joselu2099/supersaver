@@ -22,14 +22,14 @@ public class AuthController {
         this.userService = userService;
     }
 
-    @GetMapping("index")
-    public String home(){
-        return "index";
-    }
-
     @GetMapping("/login")
     public String loginForm() {
         return "login";
+    }
+
+    @GetMapping("/login?continue")
+    public String goLogged(){
+        return "redirect:/";
     }
 
     // handler method to handle user registration request
@@ -39,24 +39,6 @@ public class AuthController {
         model.addAttribute("user", user);
         return "register";
     }
-
-    /*
-    @PostMapping("/login/auth")
-    public String login(@RequestParam("email") String email,
-                        @RequestParam("password") String password,
-                        HttpServletRequest request,
-                        Model model) {
-        User user = userService.findByEmail(email);
-        if (user == null || !user.getPassword().equals(password)) {
-            model.addAttribute("errorMessage", "Invalid email or password");
-            return "login";
-        }
-        request.getSession().setAttribute("user", user);
-        System.out.println("Successful login for user: " + user.getEmail());
-        return "redirect:/index";
-    }
-    */
-
 
     // handler method to handle register user form submit request
     @PostMapping("/register/save")
@@ -72,7 +54,7 @@ public class AuthController {
             return "register";
         }
         userService.saveUser(user);
-        return "redirect:/register?success";
+        return "redirect:/login";
     }
 
     @GetMapping("/users")

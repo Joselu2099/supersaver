@@ -2,32 +2,122 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Registration and Login System</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.2/css/bootstrap.min.css">
+  <title>Inicio</title>
+  <style>
+    header nav {
+      background-color: #b9f6ca;
+    }
+
+    header nav a, header nav a:hover, header nav a:active, header nav a:visited {
+      color: white;
+      text-shadow: 1px 1px 2px #333;
+    }
+
+    main {
+      background-color: white;
+      padding-bottom: 3rem; /* Agregamos un padding para que el contenido no se vea tapado por el footer */
+    }
+
+    .card {
+      background-color: #b9f6ca;
+    }
+
+    .card-title, .card-text {
+      color: white;
+      text-shadow: 1px 1px 2px #333;
+    }
+
+    /* Estilos para el footer */
+    footer {
+      background-color: #b9f6ca;
+      color: white;
+      text-shadow: 1px 1px 2px #333;
+      bottom: 0; /* Posicionamos el footer en la parte inferior de la página */
+      width: 100%; /* Hacemos que el footer ocupe todo el ancho de la página */
+      position: fixed; /* Definimos la posición fija */
+    }
+  </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Registration and Login System</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" th:href="@{/}">Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/register}">Register</a>
+          <a class="nav-link" th:href="@{/index}">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/login}">Login</a>
+          <a class="nav-link" th:href="@{/supermarkets}">Supermercados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/products}">Productos</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/logout}">Salir</a>
         </li>
       </ul>
     </div>
+  </nav>
+</header>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <form>
+          <div class="form-group">
+            <label for="address">Dirección</label>
+            <input type="text" class="form-control" id="address" placeholder="Dirección">
+          </div>
+          <div class="form-group">
+            <label for="zipCode">Código Postal</label>
+            <input type="text" class="form-control" id="zipCode" placeholder="Código Postal">
+          </div>
+          <div class="form-group">
+            <label for="city">Ciudad</label>
+            <input type="text" class="form-control" id="city" placeholder="Ciudad">
+          </div>
+          <div class="form-group">
+            <label for="country">País</label>
+            <input type="text" class="form-control" id="country" placeholder="País">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6" th:each="supermarket : ${supermarkets}">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="#" alt="Imagen del Supermercado">
+              <div class="card-body">
+                <h5 class="card-title" th:text="${supermarket.name}"></h5>
+                <p class="card-text" th:text="${supermarket.location.address}"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</nav>
-<div class="container">
-  <div class="row">
-    <h1 class="text-center"> Welcome to Registration and Login System </h1>
+</main>
+<footer>
+  <div class="container">
+    <p>
+      <a href="@{/index}">Inicio</a> |
+      <a href="@{/contact}">Contacto</a> |
+      Copyright &copy; 2023
+    </p>
   </div>
-</div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+</footer>
 </body>
 </html>

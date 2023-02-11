@@ -30,14 +30,17 @@ public class SpringSecurity {
                 .authorizeHttpRequests((authorize) ->
                         authorize.requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/css/**").permitAll()
-                                .requestMatchers("/index").permitAll()
-                                .requestMatchers("/supermarkets").authenticated()
+                                .requestMatchers("/index").authenticated()
+                                .requestMatchers("/supermarkets").permitAll()
+                                .requestMatchers("/products").permitAll()
+                                .requestMatchers("/users").authenticated()
                                 .requestMatchers("/users").hasRole("ADMIN")
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/supermarkets")
+                                .successForwardUrl("/")
+                                .defaultSuccessUrl("/")
                                 .permitAll()
                 ).logout(
                         logout -> logout

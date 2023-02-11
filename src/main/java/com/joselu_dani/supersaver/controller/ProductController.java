@@ -8,12 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ProductController {
-    private final ProductServiceImpl productService;
 
     @Autowired
-    public ProductController(ProductServiceImpl productService) {
-        this.productService = productService;
-    }
+    private ProductServiceImpl productService;
 
     @GetMapping("/products")
     public String index(Model model) {
