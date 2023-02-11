@@ -51,19 +51,29 @@ public class SupersaverApplication {
 					locationService.saveLocation(location);
 
 					Supermarket supermarket = new Supermarket();
-					supermarket.setName(faker.company().name());
+					String supermarketName = faker.company().name();
+					supermarket.setName(supermarketName);
+					supermarket.setImage(faker.company().logo());
 					supermarket.setLocation(location);
 					supermarketService.saveSupermarket(supermarket);
 
 					IntStream.range(0, 5).forEach(j -> {
 						Product product = new Product();
-						product.setName(faker.commerce().productName());
+						int numRandom = faker.number().numberBetween(1,3);
+						String productName = switch (numRandom) {
+							case 1 -> faker.food().fruit();
+							case 2 -> faker.food().vegetable();
+							case 3 -> faker.food().ingredient();
+							default -> "milk";
+						};
+						product.setName(productName);
 						product.setBrand(faker.company().name());
 						String priceString = faker.commerce().price(0.2, 20.0);
 						priceString = priceString.replace(",", ".");
 						double price = Double.parseDouble(priceString);
 						product.setPrice(price);
-						product.setImage(faker.commerce().productName() + ".jpg");
+						product.setImage(faker.avatar().image());
+						//product.setImage(productName + ".png");
 						product.setSupermarket(supermarket);
 						productService.saveProduct(product);
 					});

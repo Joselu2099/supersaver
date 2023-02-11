@@ -63,4 +63,9 @@ public class AuthController {
         model.addAttribute("users", users);
         return "users";
     }
+
+    @GetMapping("/contact")
+    public String contact(){
+        return "contact";
+    }
 }

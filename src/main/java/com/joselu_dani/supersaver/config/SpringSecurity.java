@@ -30,9 +30,11 @@ public class SpringSecurity {
                 .authorizeHttpRequests((authorize) ->
                         authorize.requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/css/**").permitAll()
-                                .requestMatchers("/index").authenticated()
+                                .requestMatchers("/static/**").permitAll()
+                                .requestMatchers("/").authenticated()
                                 .requestMatchers("/supermarkets").permitAll()
                                 .requestMatchers("/products").permitAll()
+                                .requestMatchers("/contact").permitAll()
                                 .requestMatchers("/users").authenticated()
                                 .requestMatchers("/users").hasRole("ADMIN")
                 ).formLogin(

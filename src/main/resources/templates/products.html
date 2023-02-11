@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Products</title>
+
+</head>
+<body>
+  <h1>Products</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4" th:each="product : ${products}">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" th:text="${product.name}"></h5>
+            <a class="card-img" th:img="${product.image}"></a>
+            <p class="card-text">
+              Supermercado: <span th:text="${product.supermarket.name}"></span><br>
+              Marca: <span th:text="${product.brand}"></span><br>
+              Precio: <span th:text="${product.price}"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

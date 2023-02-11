@@ -18,6 +18,7 @@ public class Supermarket {
     private long id;
     @Column(nullable=false)
     private String name;
+    private String image;
     @OneToOne
     @JoinColumn(name="location_id", nullable=false)
     private Location location;

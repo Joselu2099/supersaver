@@ -1,0 +1,92 @@
+header nav {
+    background-color: #38b05a !important;
+}
+
+.navbar .logo{
+    height: 4rem;
+}
+
+header nav a, header nav a:hover, header nav a:active, header nav a:visited {
+    color: white !important;
+    text-shadow: 1px 1px 1px #333 !important;
+}
+
+.navbar-brand{
+    margin-left: 1rem;
+}
+
+.nav-link:hover{
+    color: #00ff46 !important;
+}
+
+main {
+    background-color: white;
+    padding-bottom: 3rem; /* Agregamos un padding para que el contenido no se vea tapado por el footer */
+}
+
+.finder-section{
+    background: #b9f6ca;
+    margin: 0 0 1rem;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    padding: 1rem;
+}
+
+form .form-group{
+    text-align: center;
+    margin: 0.2rem
+}
+
+form button{
+    display: block !important;
+    margin: 0.5rem auto auto;
+}
+
+.card {
+    background-color: #b9f6ca;
+    width: 18rem;
+    height: 20rem;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.card img{
+    background: white;
+    height: 14rem;
+    object-fit: cover;
+}
+
+.card-title, .card-text {
+    color: white;
+    text-shadow: 1px 1px 2px #333;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #38b05a;
+    color: white;
+    text-shadow: 1px 1px 2px #333;
+    bottom: 0; /* Posicionamos el footer en la parte inferior de la página */
+    width: 100%; /* Hacemos que el footer ocupe el ancho de la página */
+    position: fixed; /* Definimos la posición fija */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p{
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: #00ff46;
+}

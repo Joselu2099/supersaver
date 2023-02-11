@@ -1,44 +1,119 @@
-body{
-    background-color: aquamarine;
+*{
+    font-family: "Apple LiGothic";
+}
+.navbar {
+    background-color: #38b05a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.navbar-brand{
-    background-color: #14B6E2;
+.navbar .logo{
+    height: 4rem;
 }
-.container{
-    border:3px solid #14B6E2;
+
+.navbar a {
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    font-size: xx-large;
 }
-.btn-primary{
-    color: #000000 !important;
-    background-color: #14B6E2;
-    border-color: #000000;
+.card {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #b9f6ca;
+    border-radius: 2rem;
+    border: 2px solid;
+    color: white !important;
+    text-shadow: 1px 1px 3px black;
+    border-color: green;
 }
-.btn-primary:hover {
-    color: #fff;
-    background-color: #D2F0F0;
-    border-color: #000000;
+
+.card h5{
+    margin: 1rem;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-size: x-large;
 }
-.form-control{
-    color: #212529;
-    background-color: #C8C8C8;
-    border: 1px solid #000000;
-    border-radius: 0.25rem;
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
 }
-.form-control:focus {
-    color: #212529;
-    background-color: #C8C8C8;
-    border: 1px solid #000000;
-    box-shadow: 0 0 0 0.1rem #ff0000;
+
+form {
+    width: 100%;
 }
-.form-control:hover {
-    color: #212529;
-    background-color: white;
-    border: 1px solid #000000;
-    box-shadow: 0 0 0 0.1rem #ff0000;
+
+form input, form button {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 10px;
 }
-.card-body{
-    background-color: #D2F0F0;
+
+form button{
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    background-color: #008628;
+    border-color: black;
+    width: fit-content;
+    margin: 1rem auto;
+    display: block;
 }
-.card.header{
-    background-color: #C8C8C8;
+
+form span{
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    margin-right: 1rem;
+}
+
+form a{
+    color: black;
+    text-shadow: 1px 1px 3px white;
+}
+
+form button:hover {
+    background-color: #00ff47;
+}
+
+form input:focus, form button:focus {
+    border: 1px solid #38b05a;
+    box-shadow: 0px 0px 1px black;
+}
+
+.alert {
+    text-align: center;
+    border-radius: 1rem;
+}
+
+
+/* Estilos para el footer */
+footer {
+    background-color: #38b05a;
+    color: white;
+    text-shadow: 1px 1px 2px #333;
+    bottom: 0; /* Posicionamos el footer en la parte inferior de la página */
+    width: 100%; /* Hacemos que el footer ocupe el ancho de la página */
+    position: fixed; /* Definimos la posición fija */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p{
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: #00ff46;
 }
