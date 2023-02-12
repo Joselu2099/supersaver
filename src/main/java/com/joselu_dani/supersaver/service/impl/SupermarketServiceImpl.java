@@ -32,8 +32,7 @@ public class SupermarketServiceImpl implements SupermarketService {
         return supermarketRepository.findAll().stream()
                 .filter(s -> s.getLocation().getAddress().equals(location.getAddress())
                         && s.getLocation().getPostalCode()==location.getPostalCode()
-                        && s.getLocation().getCity().equals(location.getCity())
-                        && s.getLocation().getCountry().equals(location.getCountry()))
+                        && s.getLocation().getCity().equals(location.getCity()))
                 .collect(Collectors.toList());
     }
 

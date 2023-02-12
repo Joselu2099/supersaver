@@ -21,6 +21,9 @@ public class Location {
     private int postalCode;
     @Column(nullable=false)
     private String city;
-    @Column(nullable=false)
-    private String country;
+
+    @Override
+    public String toString(){
+        return address + ", " + postalCode + ", " + city;
+    }
 }

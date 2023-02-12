@@ -40,7 +40,7 @@
     <section class="finder-section">
       <label class="alert alert-danger centered" id="alert" style="display: none;">No existe ningun supermercado registrado que tenga esa localización.</label>
       <form>
-        <label class="title text-center">Introduce tu dirección, código postal, ciudad o pais para buscar supermercados cerca de ti.</label>
+        <label class="title text-center">Introduce tu dirección, código postal o ciudad para buscar supermercados cerca de ti.</label>
         <div class="container-fluid d-flex align-items-center justify-content-center flex-wrap">
           <div class="form-group">
             <label for="address">Dirección</label>
@@ -53,10 +53,6 @@
           <div class="form-group">
             <label for="city">Ciudad</label>
             <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad">
-          </div>
-          <div class="form-group">
-            <label for="country">País</label>
-            <input type="text" class="form-control" id="country" name="country" placeholder="País">
           </div>
         </div>
         <button type="button" class="btn btn-success" onclick="filterSupermarkets()">Submit</button>
@@ -72,7 +68,6 @@
               <p class="card-text overextended" id="supermarket_address" th:text="${supermarket.location.address}">Location</p>
               <input type="hidden" id="supermarket_postalCode" th:value="${supermarket.location.postalCode}" />
               <input type="hidden" id="supermarket_city" th:value="${supermarket.location.city}" />
-              <input type="hidden" id="supermarket_country" th:value="${supermarket.location.country}" />
               <a th:href="@{/supermarkets/} + ${supermarket.id} + '/products'" class="btn btn-success">Ver productos</a>
             </div>
           </div>

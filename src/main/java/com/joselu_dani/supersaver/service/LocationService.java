@@ -10,7 +10,6 @@ public interface LocationService {
     List<Location> findByAddress(String address);
     List<Location> findByPostalCode(int postalCode);
     List<Location> findByCity(String city);
-    List<Location> findByCountry(String country);
     Location saveLocation(Location location);
     List<Location> findByAddressContains(String parcialAddress);
 }

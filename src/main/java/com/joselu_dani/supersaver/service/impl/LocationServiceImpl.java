@@ -35,11 +35,6 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public List<Location> findByCountry(String country) {
-        return null;
-    }
-
-    @Override
     public Location saveLocation(Location location) {
         return locationRepository.save(location);
     }

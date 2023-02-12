@@ -87,6 +87,8 @@ form input:focus, form button:focus {
 .alert {
     text-align: center;
     border-radius: 1rem;
+    color: white !important;
+    border-color: green;
 }
 
 

@@ -44,10 +44,12 @@ public class SupersaverApplication {
 			if(locationService.findAll().isEmpty()) {
 				IntStream.range(0, 20).forEach(i -> {
 					Location location = new Location();
-					location.setAddress(faker.address().fullAddress());
-					location.setPostalCode(Integer.parseInt(faker.address().zipCode()));
-					location.setCity(faker.address().city());
-					location.setCountry(faker.address().country());
+					String fullAddress = faker.address().fullAddress();
+					String[] addressComponents = fullAddress.split(", ");
+					location.setAddress(addressComponents[0]);
+					String[] postalCodeArray = addressComponents[addressComponents.length - 1].split(" ");
+					location.setPostalCode(Integer.parseInt(postalCodeArray[1]));
+					location.setCity(addressComponents[addressComponents.length - 2]);
 					locationService.saveLocation(location);
 
 					Supermarket supermarket = new Supermarket();
