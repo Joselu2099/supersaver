@@ -136,4 +136,7 @@ footer a:hover{
     .card h5{
         font-size: xx-large;
     }
+    .d-flex{
+        font-size: 40px;
+    }
 }
