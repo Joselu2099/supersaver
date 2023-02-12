@@ -139,4 +139,7 @@ footer a:hover{
     .d-flex{
         font-size: 40px;
     }
+    .card {
+        margin-top: 200px;
+    }
 }
