@@ -38,11 +38,12 @@
     <main>
         <div class="container-fluid d-flex align-items-center justify-content-center flex-wrap">
             <div th:each="supermarket : ${supermarkets}">
-                <div class="card m-2" style="width: 20rem;">
-                    <img class="card-img-top" th:src="${supermarket.image}" src="https://i.pinimg.com/736x/a1/eb/1c/a1eb1c19daf4b438fc9ce8c9adcb1114.jpg" alt="Imagen del Supermercado">
+                <div class="card m-2 text-center" style="width: 20rem;">
+                    <img class="card-img-top" th:src="${supermarket.image}" alt="Imagen del Supermercado">
                     <div class="card-body">
-                        <h5 class="card-title" th:text="${supermarket.name}">Product</h5>
-                        <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; height: 60%;" th:text="${supermarket.location.address}">Location</p>
+                        <h5 class="card-title overextended" th:text="${supermarket.name}">Product</h5>
+                        <p class="card-text overextended" th:text="${supermarket.location.address}">Location</p>
+                        <a th:href="@{/supermarkets/} + ${supermarket.id} + '/products'" class="btn btn-success">Ver productos</a>
                     </div>
                 </div>
             </div>

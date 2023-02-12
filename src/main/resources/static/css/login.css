@@ -1,5 +1,5 @@
 *{
-    font-family: "Apple LiGothic";
+    font-family: inherit;
 }
 .navbar {
     background-color: #38b05a;
@@ -22,10 +22,9 @@
     margin: 50px auto;
     background-color: #b9f6ca;
     border-radius: 2rem;
-    border: 2px solid;
     color: white !important;
     text-shadow: 1px 1px 3px black;
-    border-color: green;
+    border: 2px solid green;
 }
 
 .card h5{

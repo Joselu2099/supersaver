@@ -9,15 +9,15 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" th:href="@{/}">Logo</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand mr-5" th:href="@{/}"><img src="/static/img/supersaver_logo.png" class="logo"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" th:href="@{/}">Inicio</a>
+            <a class="nav-link" th:href="@{/index}">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" th:href="@{/supermarkets}">Supermercados</a>
@@ -34,8 +34,15 @@
       </div>
     </nav>
   </header>
-  <main>
-    <h1>PAGINA CONTACTO</h1>
+  <main class="text-center">
+    <h1>Proyecto Spring</h1>
+    <h2>Despliegue de Aplicaciones Web</h2>
+    <div class="card-miembros">
+        <h3>Miembros:</h3>
+        <h4>Jose Luis Sánchez Carrasco</h4>
+        <h4>Daniel López Pérez</h4>
+    </div>
+    <img src="/static/img/cesur_logo.png" style="display: block; margin: auto; width: 18rem;">
   </main>
   <footer class="d-flex align-items-center justify-content-center">
     <p>

@@ -32,10 +32,10 @@ public class SpringSecurity {
                                 .requestMatchers("/css/**").permitAll()
                                 .requestMatchers("/static/**").permitAll()
                                 .requestMatchers("/").authenticated()
-                                .requestMatchers("/supermarkets").permitAll()
-                                .requestMatchers("/products").permitAll()
+                                .requestMatchers("/supermarkets/**").permitAll()
+                                .requestMatchers("/products/**").permitAll()
                                 .requestMatchers("/contact").permitAll()
-                                .requestMatchers("/users").authenticated()
+                                .requestMatchers("/users/**").authenticated()
                                 .requestMatchers("/users").hasRole("ADMIN")
                 ).formLogin(
                         form -> form

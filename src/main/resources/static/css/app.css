@@ -1,3 +1,7 @@
+*{
+    font-family: inherit;
+}
+
 header nav {
     background-color: #38b05a !important;
 }
@@ -15,6 +19,10 @@ header nav a, header nav a:hover, header nav a:active, header nav a:visited {
     margin-left: 1rem;
 }
 
+.nav-link{
+    font-size: larger;
+}
+
 .nav-link:hover{
     color: #00ff46 !important;
 }
@@ -27,9 +35,29 @@ main {
 .finder-section{
     background: #b9f6ca;
     margin: 0 0 1rem;
+    color: black;
+    text-shadow: 1px 1px 1px white;
+    padding: 1rem;
+}
+
+.finder-section .title{
+    text-align: center;
+    display: block;
     color: white;
     text-shadow: 1px 1px 1px black;
+    width: fit-content;
     padding: 1rem;
+    margin: 1rem auto;
+    background-color: #38b05a;
+    border: 1px solid green;
+    border-radius: 2rem;
+}
+
+.centered{
+    display: block;
+    width: fit-content;
+    margin: auto;
+    border-radius: 1rem;
 }
 
 form .form-group{
@@ -45,23 +73,56 @@ form button{
 .card {
     background-color: #b9f6ca;
     width: 18rem;
-    height: 20rem;
     overflow: hidden;
     border-radius: 1rem;
 }
 
 .card img{
-    background: white;
+    height: 14rem;
+    object-fit: cover;
+    background-color: white;
+}
+
+.card-title, .card-text {
+    color: #000;
+    text-shadow: 1px 1px 2px #fff;
+}
+
+.card a{
+    display: block;
+    width: fit-content;
+    margin: auto;
+}
+
+.card .overextended{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 60%;
+}
+
+.card-title.title-product{
+    background-color: black;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 1rem 1rem 0 0;
+    text-shadow: 1px 1px 2px #333;
+    margin-bottom: 0;
+}
+
+.card-img-product{
+    width: 100%;
     height: 14rem;
     object-fit: cover;
 }
 
-.card-title, .card-text {
-    color: white;
-    text-shadow: 1px 1px 2px #333;
+.card-miembros{
+    background-color: #b9f6ca;
+    width: fit-content;
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    border-radius: 1rem;
+    margin: auto;
+    padding: 1rem;
 }
 
 /* Estilos para el footer */

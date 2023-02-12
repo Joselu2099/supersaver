@@ -38,36 +38,42 @@
 <main>
   <div class="main">
     <section class="finder-section">
+      <label class="alert alert-danger centered" id="alert" style="display: none;">No existe ningun supermercado registrado que tenga esa localización.</label>
       <form>
+        <label class="title text-center">Introduce tu dirección, código postal, ciudad o pais para buscar supermercados cerca de ti.</label>
         <div class="container-fluid d-flex align-items-center justify-content-center flex-wrap">
           <div class="form-group">
             <label for="address">Dirección</label>
-            <input type="text" class="form-control" id="address" placeholder="Dirección">
+            <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
           </div>
           <div class="form-group">
-            <label for="zipCode">Código Postal</label>
-            <input type="number" class="form-control" id="zipCode" placeholder="Código Postal">
+            <label for="postalCode">Código Postal</label>
+            <input type="number" class="form-control" id="postalCode" name="postalCode" placeholder="Código Postal">
           </div>
           <div class="form-group">
             <label for="city">Ciudad</label>
-            <input type="text" class="form-control" id="city" placeholder="Ciudad">
+            <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad">
           </div>
           <div class="form-group">
             <label for="country">País</label>
-            <input type="text" class="form-control" id="country" placeholder="País">
+            <input type="text" class="form-control" id="country" name="country" placeholder="País">
           </div>
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-success" onclick="filterSupermarkets()">Submit</button>
       </form>
     </section>
     <section class="supermarkets-section">
       <div class="container-fluid d-flex align-items-center justify-content-center flex-wrap">
         <div th:each="supermarket : ${supermarkets}">
-          <div class="card m-2" style="width: 20rem;">
-            <img class="card-img-top" th:src="${supermarket.image}" alt="Imagen del Supermercado" style="height: 14rem; object-fit: cover;">
+          <div class="card m-2 text-center" style="width: 20rem;">
+            <img class="card-img-top" th:src="${supermarket.image}" alt="Imagen del Supermercado">
             <div class="card-body">
-              <h5 class="card-title" th:text="${supermarket.name}"></h5>
-              <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; height: 60%;" th:text="${supermarket.location.address}"></p>
+              <h5 class="card-title overextended" th:text="${supermarket.name}">Product</h5>
+              <p class="card-text overextended" id="supermarket_address" th:text="${supermarket.location.address}">Location</p>
+              <input type="hidden" id="supermarket_postalCode" th:value="${supermarket.location.postalCode}" />
+              <input type="hidden" id="supermarket_city" th:value="${supermarket.location.city}" />
+              <input type="hidden" id="supermarket_country" th:value="${supermarket.location.country}" />
+              <a th:href="@{/supermarkets/} + ${supermarket.id} + '/products'" class="btn btn-success">Ver productos</a>
             </div>
           </div>
         </div>
@@ -82,8 +88,9 @@
     Copyright &copy; 2023
   </p>
 </footer>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="/static/js/supermarkets.js"></script>
 </body>
 </html>

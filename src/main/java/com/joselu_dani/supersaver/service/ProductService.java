@@ -11,4 +11,6 @@ public interface ProductService {
     List<Product> findByBrand(String brand);
     Product saveProduct(Product product);
     List<Product> findByNameContains(String partialName);
+    List<Product> findBySupermarketId(Long idSupermarket);
+
 }

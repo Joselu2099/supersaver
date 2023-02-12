@@ -24,4 +24,8 @@ public class Product {
     @ManyToOne
     @JoinColumn(name="supermarket_id")
     private Supermarket supermarket;
+
+    public String getPriceFormatted(){
+        return this.price + "€";
+    }
 }

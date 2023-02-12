@@ -35,4 +35,9 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findByNameContains(String parcialName){
         return productRepository.findByNameContains(parcialName);
     }
+
+    public List<Product> findBySupermarketId(Long idSupermarket){
+        return productRepository.findBySupermarketId(idSupermarket);
+    }
+
 }
