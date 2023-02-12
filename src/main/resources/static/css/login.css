@@ -35,7 +35,6 @@
 }
 
 .card-body {
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -117,4 +116,24 @@ footer a{
 
 footer a:hover{
     color: #00ff46;
+}
+@media only screen and (max-device-width: 768px) {
+    .navbar .logo{
+        height: 6rem;
+    }
+    .navbar a {
+        font-size: 40px;
+    }
+    .card{
+        max-width: none;
+        max-height: none;
+        font-size: xx-large;
+    }
+    .input{
+        font-size: 30px;
+        line-height: 50px;
+    }
+    .card h5{
+        font-size: xx-large;
+    }
 }

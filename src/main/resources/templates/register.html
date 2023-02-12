@@ -17,62 +17,42 @@
     </nav>
   </header>
   <main>
-    <div th:if="${param.success}">
-      <div class="alert alert-info">Te has registrado correctamente!</div>
-    </div>
     <div class="container">
-      <div class="row col-md-8 offset-md-2">
-        <div class="card">
-          <h5 class="text-center">Registro</h5>
-          <div class="card-body">
-            <form method="post" role="form" th:action="@{/register/save}" th:object="${user}">
-              <div class="form-group mb-3">
-                <label class="form-label">Nombre</label>
-                <input class="form-control"
-                       id="username"
-                       name="username"
-                       placeholder="Escribe un nombre de usuario"
-                       th:field="*{name}"
-                       type="text"
-                />
-                <p th:errors="*{name}" class="text-danger"
-                   th:if="${#fields.hasErrors('name')}">
-                </p>
-              </div>
-              <div class="form-group mb-3">
-                <label class="form-label">Email</label>
-                <input class="form-control"
-                       id="email"
-                       name="email"
-                       placeholder="Escribe tu email"
-                       th:field="*{email}"
-                       type="email"
-                />
-                <p th:errors="*{email}" class="text-danger"
-                   th:if="${#fields.hasErrors('email')}">
-                </p>
-              </div>
-              <div class="form-group mb-3">
-                <label class="form-label">Contraseña</label>
-                <input class="form-control"
-                       id="password"
-                       name="password"
-                       placeholder="Escribe una contraseña"
-                       th:field="*{password}"
-                       type="password"
-                />
-                <p th:errors="*{password}" class="text-danger"
-                   th:if="${#fields.hasErrors('password')}">
-                </p>
-              </div>
-              <div class="form-group mb-3 text-center">
-                <button type="submit">Registrar</button>
-                <span>Ya estás registrado?</span><a href="/" th:href="@{/login}">Login aquí</a>
-              </div>
-            </form>
+      <div class="card">
+        <h5 class="text-center">Registro</h5>
+        <div class="card-body">
+          <div th:if="${param.success}">
+            <div class="alert alert-info">Te has registrado correctamente!</div>
           </div>
+          <form method="post" role="form" th:action="@{/register/save}" th:object="${user}">
+            <div>
+              <label class="form-label">Nombre</label>
+              <input type="text" id="username" name="username" placeholder="Escribe un nombre de usuario" th:field="*{name}">
+              <p th:errors="*{name}" class="text-danger"
+                 th:if="${#fields.hasErrors('name')}">
+              </p>
+            </div>
+            <div>
+              <label class="form-label">Email</label>
+              <input type="email" id="email" name="email" placeholder="Escribe tu email" th:field="*{email}">
+              <p th:errors="*{email}" class="text-danger"
+                 th:if="${#fields.hasErrors('email')}">
+              </p>
+            </div>
+            <div>
+              <label class="form-label">Contraseña</label>
+              <input type="password" id="password" name="password" placeholder="Escribe una contraseña" th:field="*{password}">
+              <p th:errors="*{password}" class="text-danger"
+                 th:if="${#fields.hasErrors('password')}">
+              </p>
+            </div>
+            <div class="form-group mb-3 text-center"></div>
+            <button type="submit">Registrar</button>
+            <span>Ya estás registrado?</span><a href="/" th:href="@{/login}">Login aquí</a>
         </div>
+        </form>
       </div>
+    </div>
     </div>
   </main>
   <footer class="d-flex align-items-center justify-content-center">
