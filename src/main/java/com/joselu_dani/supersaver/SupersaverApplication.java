@@ -42,7 +42,7 @@ public class SupersaverApplication {
 		Faker faker = new Faker(new Locale("es-ES"));
 		return args -> {
 			if(locationService.findAll().isEmpty()) {
-				IntStream.range(0, 5).forEach(i -> {
+				IntStream.range(0, 20).forEach(i -> {
 					Location location = new Location();
 					location.setAddress(faker.address().fullAddress());
 					location.setPostalCode(Integer.parseInt(faker.address().zipCode()));
@@ -57,7 +57,7 @@ public class SupersaverApplication {
 					supermarket.setLocation(location);
 					supermarketService.saveSupermarket(supermarket);
 
-					IntStream.range(0, 5).forEach(j -> {
+					IntStream.range(0, 10).forEach(j -> {
 						Product product = new Product();
 						int numRandom = faker.number().numberBetween(1,3);
 						String productName = switch (numRandom) {
@@ -77,13 +77,6 @@ public class SupersaverApplication {
 						product.setSupermarket(supermarket);
 						productService.saveProduct(product);
 					});
-					/*
-					UserDto user = new UserDto();
-					user.setEmail(faker.internet().emailAddress());
-					user.setPassword(faker.internet().password());
-					user.setName(faker.name().username());
-					userService.saveUser(user);
-					*/
 				});
 			}
 		};

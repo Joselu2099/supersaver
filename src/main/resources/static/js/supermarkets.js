@@ -16,9 +16,12 @@ function filterSupermarkets() {
     const supermarketPostalCode = supermarkets[i].querySelector("#supermarket_postalCode").value;
     const supermarketCity = supermarkets[i].querySelector("#supermarket_city").value.toLowerCase();
     const supermarketCountry = supermarkets[i].querySelector("#supermarket_country").value.toLowerCase();
-    
+
     // Verificar si algún atributo de la localización coincide con los valores del formulario
-    if (
+    if (address === "" && postalCode === "" && city === "" && country === "") {
+      match = true;
+      supermarkets[i].style.display = "";
+    } else if (
       (address !== "" && !supermarketAddress.includes(address)) ||
       (postalCode !== "" && postalCode != supermarketPostalCode) ||
       (city !== "" && city != supermarketCity) ||
